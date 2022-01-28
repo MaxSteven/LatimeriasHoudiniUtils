@@ -27,6 +27,20 @@ This is the name of the material which will be appended to each node in the mate
 ***importtextures***    
 This takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. 
 
+
+#### Example Shelf Tool
+
+import jw_solaris_utils
+
+selectednode = hou.ui.selectNode(title="Material Library to Create Material In")
+matname = hou.ui.readInput(message="Material Name")
+importtextures = hou.ui.displayConfirmation(text="Import Textures?")
+print(matname[1])
+print(selectednode)
+print(importtextures)
+
+jw_solaris_utils.mtlxUsdImporter(selectednode, matname[1], importtextures)
+
 ---
 
 ## splitToComponents
@@ -54,5 +68,18 @@ TThis takes a boolean value. This can be obtained through the `hou.ui.displayCon
 
 ***uvunwrap***            
 TThis takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True a uvunwrap SOP will be appended to the end of each component geometry.
+
+#### Example Shelf Tool
+
+import jw_solaris_utils
+
+infile = hou.ui.selectFile(title="File to split into components")
+removeprefix = hou.ui.readInput(message="Prefix to remove from name attribute")
+generatematerials = hou.ui.displayConfirmation(text="Do you want to generate materials for each component?")
+importtextures = hou.ui.displayConfirmation(text="Do you want to import textures now? Warning! This will make you select textures for each material")
+uvtransform = hou.ui.displayConfirmation(text="Do you want to append a UV Transform SOP to each component?")
+uvunwrap = hou.ui.displayConfirmation(text="Do you want to append a UV Unwrap SOP to each component?")
+
+jw_solaris_utils.splitToComponents(infile, removeprefix[1], generatematerials, importtextures, uvtransform, uvunwrap)
 
 ---
