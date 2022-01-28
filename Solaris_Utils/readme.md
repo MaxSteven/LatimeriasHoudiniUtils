@@ -25,7 +25,7 @@ The material library nodes for the material network to be created in. This reads
 This is the name of the material which will be appended to each node in the material network. Takes a string input that must be a valid node name. To validate names you can use `re.sub("[^0-9a-zA-Z\.]+", "_", name)`. To obtain names you can use `hou.ui.readInput()` which will return a tuple which you can take the [1] index of to get the string name. 
 
 ***importtextures***    
-This takes an integer of either 1 or 0 where 0 is True and 1 is False. This can be obtained through the `hou.ui.displayMessage()` function. If importtexture == 0 then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. 
+This takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. 
 
 ---
 
@@ -44,15 +44,15 @@ This takes a string input for the absolute path to the file being imported. This
 This removes a prefix from the name attribute on the imported geometry, sometimes this happens when import files from BIM or CAD softwares and cna be used to simplify component/material names. For example if your name attribute has values like `my_architecture_project/Foundation` you would set `removeprefix = "my_architecture_project/" to return 'foundation'.
 
 ***generatematerials***                     
-This takes a 0 or 1 integer where 0 is True and 1 is False. This can be obtained through the `hou.ui.displayMessage()` function. If set to 0 every component will get a generate a single materialX based network using the mtlxUsdImporter function with the material name set to the component name. 
+This takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True every component will get a generate a single materialX based network using the mtlxUsdImporter function with the material name set to the component name. 
 
 ***importtextures***            
-This takes an integer of either 1 or 0 where 0 is True and 1 is False. This can be obtained through the `hou.ui.displayMessage()` function. If importtexture == 0 then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. ***Warning*** this will ask for textures for every component in your project which can add up quickly.
+TThis takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. ***Warning*** this will ask for textures for every component in your project which can add up quickly.
 
 ***uvtransform***           
-This takes an integer of either 1 or 0 where 0 is True and 1 is False. This can be obtained through the `hou.ui.displayMessage()` function. If set to 0 a uvtransform SOP will be appended to the end of each component geometry.
+TThis takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True a uvtransform SOP will be appended to the end of each component geometry.
 
 ***uvunwrap***            
-This takes an integer of either 1 or 0 where 0 is True and 1 is False. This can be obtained through the `hou.ui.displayMessage()` function. If set to 0 a uvunwrap SOP will be appended to the end of each component geometry.
+TThis takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True a uvunwrap SOP will be appended to the end of each component geometry.
 
 ---
