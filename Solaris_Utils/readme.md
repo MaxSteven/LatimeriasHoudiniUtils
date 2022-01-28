@@ -29,7 +29,7 @@ This takes a boolean value. This can be obtained through the `hou.ui.displayConf
 
 
 #### Example Shelf Tool
-
+```
 import jw_solaris_utils
 
 selectednode = hou.ui.selectNode(title="Material Library to Create Material In")
@@ -40,7 +40,7 @@ print(selectednode)
 print(importtextures)
 
 jw_solaris_utils.mtlxUsdImporter(selectednode, matname[1], importtextures)
-
+```
 ---
 
 ## splitToComponents
@@ -70,7 +70,7 @@ TThis takes a boolean value. This can be obtained through the `hou.ui.displayCon
 TThis takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True a uvunwrap SOP will be appended to the end of each component geometry.
 
 #### Example Shelf Tool
-
+```
 import jw_solaris_utils
 
 infile = hou.ui.selectFile(title="File to split into components")
@@ -81,5 +81,5 @@ uvtransform = hou.ui.displayConfirmation(text="Do you want to append a UV Transf
 uvunwrap = hou.ui.displayConfirmation(text="Do you want to append a UV Unwrap SOP to each component?")
 
 jw_solaris_utils.splitToComponents(infile, removeprefix[1], generatematerials, importtextures, uvtransform, uvunwrap)
-
+```
 ---
