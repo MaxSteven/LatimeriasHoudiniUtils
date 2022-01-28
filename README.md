@@ -7,4 +7,24 @@ This repo holds python modules for use inside of houdini mainly in creating shel
 - []()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Solaris Utils
