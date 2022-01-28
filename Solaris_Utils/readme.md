@@ -1,4 +1,4 @@
-# Josh Weber Solaris Utils
+# Solaris Utils
 
 This module is meant to speed up workflows in Solaris particularly in the ArchVIZ industry.
 
