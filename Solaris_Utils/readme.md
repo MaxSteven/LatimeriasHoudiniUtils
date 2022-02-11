@@ -7,12 +7,12 @@ Currently symlinked into the `python3.7libs` directory as the PYTHONPATH environ
 ---
 
 # Table of Functions:
-- [Individual Material Importers](#IndividualMaterialImporters)
-- [splitToComponents](#split To Components)
+- [Individual Material Importers](#Individual_Material_Importers)
+- [splitToComponents](#split_To_Components)
 
 ---
 
-# Individual Material Importers
+# Individual_Material_Importers
 
 mtlx_surface_importer(selectednode, matname,  diffuse_texture, roughness_texture, normal_texture
 
@@ -29,7 +29,7 @@ takes a string referencing the path to each texture which can be obtained with h
 
 ---
 
-## split To Components
+## split_To_Components
 
 splitToComponents(infile, removeprefix, generate_materials, importtextures, uvtransform, uvunwrap):
 
