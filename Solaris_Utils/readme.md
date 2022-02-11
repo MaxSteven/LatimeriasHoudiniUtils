@@ -8,7 +8,9 @@ Currently symlinked into the `python3.7libs` directory as the PYTHONPATH environ
 
 # Table of Functions:
 - [Individual Material Importers](#Individual_Material_Importers)
-- [splitToComponents](#split_To_Components)
+- [Universal Material Import](#Universal_Material_Import)
+- [Split To Components](#split_To_Components)
+- [Import Component Library](#Import_Component_Library)
 
 ---
 
@@ -39,7 +41,7 @@ takes a string referencing the path to each texture which can be obtained with h
 
 ---
 
-## Universal Material Import
+## Universal_Material_Import
 
 universal_material_import(selectednode, matname, diffuse_texture, roughness_texture, normal_texture)
 
@@ -54,8 +56,26 @@ This is the name of the material which will be appended to each node in the mate
 ***diffuse_texture, roughness_texture, normal_texture***    
 takes a string referencing the path to each texture which can be obtained with hou.ui.selectFile() 
 
+#### Example Script
+```
+matname = hou.ui.readInput("Material Name")
+matname = matname[1]
+selectednode = hou.ui.selectNode()
+importtextures = hou.ui.displayConfirmation("Import textures?")
+
+if importtextures==True:
+    diffuse_texture = hou.ui.selectFile(title='Diffuse Texture For ' + matname)
+    roughness_texture = hou.ui.selectFile(title='Roughness Texture For ' + matname)
+    normal_texture = hou.ui.selectFile(title='Normal Texture For ' + matname)
+elif importtextures==False:
+    diffuse_texture = ""
+    roughness_texture = ""
+    normal_texture = ""
+
+jw_solaris_utils.universal_material_import(selectednode, matname, diffuse_texture, roughness_texture, normal_texture)
+```
 ---
-## split_to_components
+## Split_To_Components
 
 split_to_components(infile, removeprefix, generatematerials, diffuse_texture, roughness_texture, normal_texture, uvtransform, uvunwrap)
 
@@ -103,7 +123,7 @@ jw_solaris_utils.split_to_components(infile, removeprefix[1], generatematerials,
 ```
 ---
 
-## import_component_library
+## Import_Component_Library
 
 import_component_library(directory)
 
