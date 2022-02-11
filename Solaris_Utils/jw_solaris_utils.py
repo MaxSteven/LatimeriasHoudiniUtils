@@ -123,7 +123,7 @@ def usd_surface_importer(selectednode, matname, diffuse_texture, roughness_textu
     ## connect nodes
     usdsurf_node.setInput(0, diffuse_node, 4)
     usdsurf_node.setInput(5, roughness_node, 0)
-    usdsurf_node.setInput(11, normal_node, 0)
+    usdsurf_node.setInput(10, normal_node, 4)
     ## set parameters
     diffuse_node.parm("sourceColorSpace").set("sRGB")
     roughness_node.parm("sourceColorSpace").set("raw")
