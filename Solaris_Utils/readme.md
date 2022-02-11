@@ -39,6 +39,24 @@ This is the name of the material which will be appended to each node in the mate
 ***diffuse_texture, roughness_texture, normal_texture***    
 takes a string referencing the path to each texture which can be obtained with hou.ui.selectFile() 
 
+#### Example Script
+```
+matname = hou.ui.readInput("Material Name")
+matname = matname[1]
+selectednode = hou.ui.selectNode()
+importtextures = hou.ui.displayConfirmation("Import textures?")
+
+if importtextures==True:
+    diffuse_texture = hou.ui.selectFile(title='Diffuse Texture For ' + matname)
+    roughness_texture = hou.ui.selectFile(title='Roughness Texture For ' + matname)
+    normal_texture = hou.ui.selectFile(title='Normal Texture For ' + matname)
+elif importtextures==False:
+    diffuse_texture = ""
+    roughness_texture = ""
+    normal_texture = ""
+    
+jw_solaris_utils.mtlx_surface_importer(selectednode, matname, diffuse_texture, roughness_texture, normal_texture)
+```
 ---
 
 ## Universal_Material_Import
