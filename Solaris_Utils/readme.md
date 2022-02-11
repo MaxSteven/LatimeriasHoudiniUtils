@@ -7,14 +7,14 @@ Currently symlinked into the `python3.7libs` directory as the PYTHONPATH environ
 ---
 
 # Table of Functions:
-- [mtlxUsdImporter](#mtlxUsdImporter)
+- [Individual Material Importers](#IndividualMaterialImporters)
 - [splitToComponents](#splitToComponents)
 
 ---
 
-## mtlxUsdImporter
+# Individual Material Importers
 
-mtlxUsdImporter(selectednode, matname, importtextures)
+mtlx_surface_importer(selectednode, matname,  diffuse_texture, roughness_texture, normal_texture
 
 This creates a material network using USD preview surfaces for viewport and materialX nodes for render materials. 
 
@@ -24,23 +24,9 @@ The material library nodes for the material network to be created in. This reads
 ***matname***   
 This is the name of the material which will be appended to each node in the material network. Takes a string input that must be a valid node name. To validate names you can use `re.sub("[^0-9a-zA-Z\.]+", "_", name)`. To obtain names you can use `hou.ui.readInput()` which will return a tuple which you can take the [1] index of to get the string name. 
 
-***importtextures***    
-This takes a boolean value. This can be obtained through the `hou.ui.displayConfirmation()` function. If True then the function will run `hou.ui.selectFile()` and have the user choose files for diffuse, roughness and normal. 
+***diffuse_texture, roughness_texture, normal_texture***    
+takes a string referencing the path to each texture which can be obtained with hou.ui.selectFile() 
 
-
-#### Example Shelf Tool
-```
-import jw_solaris_utils
-
-selectednode = hou.ui.selectNode(title="Material Library to Create Material In")
-matname = hou.ui.readInput(message="Material Name")
-importtextures = hou.ui.displayConfirmation(text="Import Textures?")
-print(matname[1])
-print(selectednode)
-print(importtextures)
-
-jw_solaris_utils.mtlxUsdImporter(selectednode, matname[1], importtextures)
-```
 ---
 
 ## splitToComponents
