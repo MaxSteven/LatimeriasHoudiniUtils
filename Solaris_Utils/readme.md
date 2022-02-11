@@ -14,9 +14,19 @@ Currently symlinked into the `python3.7libs` directory as the PYTHONPATH environ
 
 # Individual_Material_Importers
 
-mtlx_surface_importer(selectednode, matname,  diffuse_texture, roughness_texture, normal_texture
+### A series of standard surface/uber material importers all take the same arugemnts. The supported materials are: Arnold, materialX, USD, Principled, PXR.
 
-This creates a material network using USD preview surfaces for viewport and materialX nodes for render materials. 
+args: (selectednode, matname,  diffuse_texture, roughness_texture, normal_texture)
+
+- mtlx_surface_importer(args)
+
+- principled_surface_importer(args)
+
+- arnold_surface_importer(args)
+
+- usd_surface_importer(args)
+
+- pxr_surface_importer(args)
 
 ***selectednode***         
 The material library nodes for the material network to be created in. This reads a single string which can be obtained through the `hou.ui.selectNode` function.
