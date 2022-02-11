@@ -8,7 +8,7 @@ Currently symlinked into the `python3.7libs` directory as the PYTHONPATH environ
 
 # Table of Functions:
 - [Individual Material Importers](#IndividualMaterialImporters)
-- [splitToComponents](#split_To_Components)
+- [splitToComponents](#split To Components)
 
 ---
 
