@@ -29,7 +29,7 @@ takes a string referencing the path to each texture which can be obtained with h
 
 ---
 
-## splitToComponents
+## split To Components
 
 splitToComponents(infile, removeprefix, generate_materials, importtextures, uvtransform, uvunwrap):
 
